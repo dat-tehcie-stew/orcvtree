@@ -7,10 +7,11 @@ class Person
     @height = 0
     @speed = 1
     @hp = 100
+    @image = ''
   end
 
   def draw
-    
+    @image.draw_rot(@x, @y, 1)
   end
   attr_reader
 end
