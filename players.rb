@@ -7,11 +7,14 @@ class Person
     @height = 0
     @speed = 1
     @hp = 100
-    @image = ''
   end
 
   def draw
-    @image.draw_rot(@x, @y, 1)
+
+  end
+
+  def hurt(ammount)
+    @hp -= ammount
   end
   attr_reader
 end
@@ -32,10 +35,6 @@ end
 
     def jump()
       #add the jump function here
-    end
-
-    def hurt(@ammount)
-      @hp -= @ammount
     end
   end
 
@@ -86,7 +85,7 @@ end
     #Ents Child Class
     class Ent < Enemy
       def initialize()
-        @attack = 10
+        @attack = 15
       end
     end
       #Birch Ent Subclass
@@ -106,14 +105,14 @@ end
       #Pine Ent Subclass
       class PineEnt < Ent
         def initialize()
-          @attack *= 3
+          @attack *= 1
         end
       end
 
     #Mushrooms Child Class
     class Mushroom < Enemy
       def initialize()
-        @attack = 10
+        @attack = 5
       end
     end
       #Easy Mushroom Subclass
@@ -133,7 +132,7 @@ end
       #Strong Mushroom Subclass
       class StrongMushroom < Mushroom
         def initialize()
-          @attack *= 3
+          @attack *= 5
         end
       end
 

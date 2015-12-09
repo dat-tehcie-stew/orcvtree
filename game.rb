@@ -7,14 +7,15 @@ class Window < Gosu::Window
     super(1920,1080,true)
     self.caption = "The Rage of Morbork"
     @scene = MainMenu.new()
+    @player = Player.new(self)
   end
 
   def draw()
-
+    @player.draw
   end
 
   def update()
-
+    
   end
 end
 
