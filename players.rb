@@ -17,7 +17,8 @@ class Person
   def hurt(ammount)
     @hp -= ammount
   end
-  attr_reader
+
+  attr_reader :x
 end
   #Player Parent Class
   class Player < Person
@@ -45,7 +46,7 @@ end
     def initialize()
       super()
       @attack = 0
-      #@player = player
+      @player = player
     end
 
     def move()

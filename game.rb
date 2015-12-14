@@ -1,5 +1,5 @@
 require 'gosu'
-require_relative 'players'
+require_relative 'player'
 require_relative 'levels'
 a_keener_sense_of_optimism = false
 
@@ -9,8 +9,7 @@ class Window < Gosu::Window
     self.caption = "The Rage of Morbork"
     @level = Level.new()
     @player = Player.new()
-    @enemy = PinkFlower.new()
-    @enemysLeft = 1
+    @enemysLeft = 0
   end
 
   def changeScene()
@@ -34,15 +33,21 @@ class Window < Gosu::Window
   def draw()
     @player.draw
     @level.draw
-    @enemy.draw
   end
 
   def update()
     changeScene() if @player.x >= 1900 && @enemysLeft == 0
-    @player.moveRight if button_down?(Gosu::KbRight)
-    @player.moveLeft if button_down?(Gosu::KbLeft)
-    @player.jump if button_down?(Gosu::KbUp)
-    @enemy.move()
+
+    if button_down?(Gosu::KbRight)
+      @player.move("right")
+    elsif button_down?(Gosu::KbLeft)
+      @player.move("left")
+    elsif button_down?(Gosu::KbUp)
+      @player.move("jump")
+    else
+      @player.move("nothing")
+    end
+
     end
   end
 
