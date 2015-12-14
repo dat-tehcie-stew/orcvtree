@@ -1,7 +1,7 @@
 #Parent Class
 class Level
   def initialize()
-    @background = Gosu::Image.new('lv2.png')
+    @background = Gosu::Image.new('lv1.png')
     @foreground = #something.png
     @a_keen_sense_of_optimism = false
     @ground = 0 #just the base x value so that we can use it
@@ -10,11 +10,11 @@ class Level
   end
 
   def mainMenu() #0
-    @background = Gosu::Image.new('mainMenu.png')
+    @background = Gosu::Image.new('lv1.png')
   end
 
   def intro() #1
-    @background = Gosu::Image.new('intro.png')
+    @background = Gosu::Image.new('lv2.png')
   end
 
   def level1() #2
@@ -37,7 +37,7 @@ class Level
     @background = Gosu::Image.new('end.png')
   end
 
-  attr_reader
+  attr_accessor :levelNumber
 
   def draw()
     @background.draw(0, 0, 0)

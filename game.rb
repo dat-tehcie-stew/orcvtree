@@ -1,6 +1,7 @@
 require 'gosu'
 require_relative 'player'
 require_relative 'levels'
+require_relative 'enemies'
 a_keener_sense_of_optimism = false
 
 class Window < Gosu::Window
@@ -9,10 +10,13 @@ class Window < Gosu::Window
     self.caption = "The Rage of Morbork"
     @level = Level.new()
     @player = Player.new()
-    @enemysLeft = 0
+    @enemy = Enemy.new()
+    @enemy.draw
+    @enemysLeft = 1
   end
 
   def changeScene()
+     @level.levelNumber += 1
     if @level.levelNumber == 0
       @level.mainMenu()
     elsif @level.levelNumber == 1
